@@ -27,9 +27,11 @@ function getUserInfo() {
             if (res.status !== 0) {
                 return layui.layer.msg('获取用户信息失败')
             }
-            console.log(res);
+            // console.log(res);
             // 调用 renderAvatar 渲染用户的头像
             renderAvatar(res.data);
+            // console.log(res.data);
+
         },
         // complete(res) {
         //     if (res.responseJSON.status !== 0 || res.responseJSON.message === '身份认证失败') {
@@ -48,7 +50,7 @@ function getUserInfo() {
 function renderAvatar(user) {
     // 1. 获取 昵称 或 用户名
     var name = user.nickname || user.username;
-    console.log(name);
+    // console.log(name);
     // 2. 设置欢迎的文本
     $('#welcome').html('欢迎 &nbsp;&nbsp;' + name);
     // 3. 按需渲染用户头像

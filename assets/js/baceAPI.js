@@ -12,12 +12,12 @@ $(function () {
             options.headers = {
                 Authorization: localStorage.getItem('token') || ''
             }
-
-
         // 当请求结束后 , 判断用户的设置访问权限
         options.complete = function (res) {
+            // console.log(res);
+
             // 当用户身份认证失败后
-            if (res.responseJSON.status !== 0 || res.responseJSON.message === '身份认证失败') {
+            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
                 // 1. 清空恩地存储中的token
                 localStorage.removeItem('token')
                 // 重新跳转登录页面
